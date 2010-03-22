@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20100322203258) do
     t.string   "name"
     t.string   "description"
     t.string   "location"
+    t.string   "ews_item_id"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.datetime "created_at"

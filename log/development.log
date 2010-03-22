@@ -171,3 +171,109 @@ Completed in 54ms (View: 35, DB: 1) | 200 OK [http://localhost/events]
 [0m
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
   [4;36;1mSQL (1.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100322203258')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateEvents (20100322203258)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "ews_item_id" varchar(255), "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100322203258')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("events")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "ews_item_id" varchar(255), "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100322203258')[0m
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 13:51:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Event with ID=1):
+  app/controllers/events_controller.rb:7:in `show'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (161.6ms)
+Rendered rescues/_request_and_response (2.7ms)
+Rendering rescues/layout (not_found)
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 13:51:41) [GET]
+  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 21ms (View: 3, DB: 0) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-22 13:51:42) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (62.1ms)
+Completed in 89ms (View: 65, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 13:52:03) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"20", "name"=>"Test", "end_datetime(5i)"=>"30", "location"=>"Home", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"12", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"00", "end_datetime(3i)"=>"22"}}
+  [4;36;1mEvent Create (0.6ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'Home', '2010-03-22 20:52:03', NULL, '2010-03-22 20:30:00', '2010-03-22 20:52:03', '2010-03-22 12:00:00', 'Testing stuff')[0m
+Redirected to http://localhost:3000/events/1
+Completed in 38ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 13:52:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 48ms (View: 20, DB: 1) | 200 OK [http://localhost/events/1]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 13:52:07) [GET]
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 44ms (View: 26, DB: 2) | 200 OK [http://localhost/events]

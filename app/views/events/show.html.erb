@@ -1,0 +1,28 @@
+<% title "Event" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @event.name %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%=h @event.location %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @event.description %>
+</p>
+<p>
+  <strong>Start Datetime:</strong>
+  <%=h @event.start_datetime %>
+</p>
+<p>
+  <strong>End Datetime:</strong>
+  <%=h @event.end_datetime %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_event_path(@event) %> |
+  <%= link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", events_path %>
+</p>

@@ -16,13 +16,11 @@ pre. @development:
   ews_user_name: yourusername
   ews_user_password: yourpassword
   ews_endpoint: https://yourserver/ews/exchange.asmx
-
 test:
   domain: test.host
   ews_user_name: yourusername
   ews_user_password: yourpassword
   ews_endpoint: https://yourserver/ews/exchange.asmx
-
 production:
   domain: example.com
   ews_user_name: yourusername

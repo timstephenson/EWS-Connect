@@ -8,6 +8,27 @@ What it does:
 * When deleting an event, the event will be deleted on the Exchange server using EWS.
 * When editing an event, the original event will be deleted from the Exchange server and a new one will be created.
 
+If testing this out for yourself, it is a very basic rails application with a single event model to keep things simple.
+There is a non-versioned file called app_config.yml that you will need to create. It should look like this:
+
+pre. @development:
+  domain: localhost:3000
+  ews_user_name: yourusername
+  ews_user_password: yourpassword
+  ews_endpoint: https://yourserver/ews/exchange.asmx
+
+test:
+  domain: test.host
+  ews_user_name: yourusername
+  ews_user_password: yourpassword
+  ews_endpoint: https://yourserver/ews/exchange.asmx
+
+production:
+  domain: example.com
+  ews_user_name: yourusername
+  ews_user_password: yourpassword
+  ews_endpoint: https://yourserver/ews/exchange.asmx@ 
+
 h2. Other resources
 
 h3. ViewPoint

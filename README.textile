@@ -11,7 +11,7 @@ What it does:
 If testing this out for yourself, it is a very basic rails application with a single event model to keep things simple.
 There is a non-versioned file called app_config.yml that you will need to create. It should look like this:
 
-pre. @development:
+pre. development:
   domain: localhost:3000
   ews_user_name: yourusername
   ews_user_password: yourpassword
@@ -25,7 +25,7 @@ production:
   domain: example.com
   ews_user_name: yourusername
   ews_user_password: yourpassword
-  ews_endpoint: https://yourserver/ews/exchange.asmx@ 
+  ews_endpoint: https://yourserver/ews/exchange.asmx
 
 h2. Other resources
 

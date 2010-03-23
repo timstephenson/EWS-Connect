@@ -1,4 +1,4 @@
-h2. EWS Connect
+h1. EWS Connect
 
 This is a simple test application that uses cURL to post data to Exchange Web Services. 
 
@@ -8,24 +8,24 @@ What it does:
 * When deleting an event, the event will be deleted on the Exchange server using EWS.
 * When editing an event, the original event will be deleted from the Exchange server and a new one will be created.
 
-h3. Other resources
+h2. Other resources
 
-h4. ViewPoint
+h3. ViewPoint
 
-This is a great gem for working with EWS. In my case, HTTPClient failed authenticate 
-against the server. After many failed attempts to fix the problem, I went with this approach.
+This is a great gem for working with EWS. In my case, HTTPClient failed to authenticate against the server.
+After many failed attempts to fix the problem, I decided to go with the cURL approach.
 
 The author of this gem is also very helpful and responsive.
 
 See: "zenchild/viewpoint":http://github.com/zenchild/Viewpoint 
 
-h4. curb
+h3. curb
 
 Ruby bindings for curl. I didn't use it in this example because my needs were very simple, but take a look.
 
 See: "curb":http://github.com/taf2/curb
 
-h4. ews-api
+h3. ews-api
 
 Another gem for working with EWS. "ews-api":http://github.com/jrun/ews-api
 

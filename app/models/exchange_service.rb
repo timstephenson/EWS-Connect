@@ -129,7 +129,7 @@ private
                   attendees.with_element("Attendee") do |attendee|
                     attendee.with_element("Mailbox") do |mailbox|
                       mailbox.with_element("EmailAddress") do |email|
-                        email.add_text("tim@raddonline.com")
+                        email.add_text("any@emailaddress.com")
                       end
                     end
                   end

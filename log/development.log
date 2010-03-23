@@ -592,3 +592,494 @@ Processing EventsController#index (for ::1 at 2010-03-22 17:28:41) [GET]
 Rendering template within layouts/application
 Rendering events/index
 Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateEvents (20100322203258)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "ews_item_id" varchar(255), "target_mailbox" varchar(255), "attendee_addresses" text, "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100322203258')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("events")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "ews_item_id" varchar(255), "target_mailbox" varchar(255), "attendee_addresses" text, "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100322203258')[0m
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:18:04) [GET]
+  [4;36;1mEvent Load (0.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 80ms (View: 62, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:18:06) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (343.0ms)
+Completed in 389ms (View: 365, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:19:10) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (69.4ms)
+Completed in 106ms (View: 81, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:21:14) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (68.9ms)
+Completed in 104ms (View: 80, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:32:22) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (66.1ms)
+Completed in 94ms (View: 69, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:38:05) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test Event", "end_datetime(5i)"=>"32", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"This is a test with attendees", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"32", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+Tue Mar 23 11:38:05 -0700 2010: Event:  - Uh-oh, there was an XML exception: You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.attribute.
+  [4;35;1mEvent Create (0.7ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Test Event', 'UCSF', '2010-03-23 18:38:05', NULL, '2010-03-23 18:32:00', '2010-03-23 18:38:05', '2010-03-23 08:32:00', 'This is a test with attendees', 'tim@raddonline.com', '')[0m
+Redirected to http://localhost:3000/events/1
+Completed in 385ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:38:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 57ms (View: 30, DB: 2) | 200 OK [http://localhost/events/1]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:39:10) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"1"}
+  [4;35;1mEvent Load (1.6ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+Tue Mar 23 11:39:10 -0700 2010: Event: 1 - EWS appointment could not be deleted. Status: Error. Response code: ErrorInvalidIdEmpty. Id must be non-empty.
+  [4;36;1mEvent Destroy (0.6ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/events
+Completed in 254ms (DB: 2) | 302 Found [http://localhost/events/1]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:39:10) [GET]
+  [4;35;1mEvent Load (0.6ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 24ms (View: 5, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:39:12) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (68.6ms)
+Completed in 97ms (View: 72, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:39:37) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test EVent", "end_datetime(5i)"=>"39", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"This is only a test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"39", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.attribute):
+  app/models/exchange_service.rb:20:in `create_event_in_ews'
+  app/controllers/events_controller.rb:57:in `create_ews_event'
+  app/controllers/events_controller.rb:16:in `create'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (76.0ms)
+Rendered rescues/_request_and_response (105.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:42:03) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test EVent", "end_datetime(5i)"=>"39", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"This is only a test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"39", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+Tue Mar 23 11:42:04 -0700 2010: Event:  - EWS appointment creation failed. Status: Error. Response code: ErrorMissingInformationEmailAddress. EmailAddress or ItemId must be included in the request.
+  [4;36;1mEvent Create (0.7ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Test EVent', 'UCSF', '2010-03-23 18:42:04', NULL, '2010-03-23 18:39:00', '2010-03-23 18:42:04', '2010-03-23 08:39:00', 'This is only a test', 'tim@raddonline.com', '')[0m
+Redirected to http://localhost:3000/events/2
+Completed in 317ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:42:04) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEvent Load (1.6ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 49ms (View: 21, DB: 2) | 200 OK [http://localhost/events/2]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:44:32) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"2"}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2) [0m
+Tue Mar 23 11:44:32 -0700 2010: Event: 2 - EWS appointment could not be deleted. Status: Error. Response code: ErrorInvalidIdEmpty. Id must be non-empty.
+  [4;35;1mEvent Destroy (0.6ms)[0m   [0mDELETE FROM "events" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/events
+Completed in 260ms (DB: 2) | 302 Found [http://localhost/events/2]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:44:32) [GET]
+  [4;36;1mEvent Load (0.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 25ms (View: 5, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:44:34) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (68.9ms)
+Completed in 97ms (View: 72, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:44:58) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"44", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"07", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"44", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+Tue Mar 23 11:44:58 -0700 2010: Event:  - EWS appointment creation failed. Status: Error. Response code: ErrorMissingInformationEmailAddress. EmailAddress or ItemId must be included in the request.
+  [4;35;1mEvent Create (0.7ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Test', 'UCSF', '2010-03-23 18:44:58', NULL, '2010-03-23 18:44:00', '2010-03-23 18:44:58', '2010-03-23 07:44:00', 'Testing stuff', 'tim@raddonline.com', '')[0m
+Redirected to http://localhost:3000/events/3
+Completed in 312ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:44:58) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 49ms (View: 21, DB: 2) | 200 OK [http://localhost/events/3]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:45:27) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"44", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"07", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"44", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+Tue Mar 23 11:45:27 -0700 2010: Event:  - EWS appointment creation failed. Status: Error. Response code: ErrorMissingInformationEmailAddress. EmailAddress or ItemId must be included in the request.
+  [4;35;1mEvent Create (0.7ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Test', 'UCSF', '2010-03-23 18:45:27', NULL, '2010-03-23 18:44:00', '2010-03-23 18:45:27', '2010-03-23 07:44:00', 'Testing stuff', 'tim@raddonline.com', '')[0m
+Redirected to http://localhost:3000/events/4
+Completed in 304ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:45:28) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 49ms (View: 21, DB: 2) | 200 OK [http://localhost/events/4]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:46:43) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"44", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"07", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"44", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+
+NameError (undefined local variable or method `logger' for #<ExchangeService:0x248d274 @errors=[], @appointment_id=nil>):
+  app/models/exchange_service.rb:137:in `create_calendar_item_xml'
+  app/models/exchange_service.rb:136:in `each'
+  app/models/exchange_service.rb:136:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:135:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:102:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:100:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:77:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:76:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:75:in `create_calendar_item_xml'
+  app/models/exchange_service.rb:19:in `create_event_in_ews'
+  app/controllers/events_controller.rb:57:in `create_ews_event'
+  app/controllers/events_controller.rb:16:in `create'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (86.4ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:46:58) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"44", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"07", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"44", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+Tue Mar 23 11:46:59 -0700 2010: Event:  - EWS appointment creation failed. Status: Error. Response code: ErrorMissingInformationEmailAddress. EmailAddress or ItemId must be included in the request.
+  [4;35;1mEvent Create (0.6ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Test', 'UCSF', '2010-03-23 18:46:59', NULL, '2010-03-23 18:44:00', '2010-03-23 18:46:59', '2010-03-23 07:44:00', 'Testing stuff', 'tim@raddonline.com', '')[0m
+Redirected to http://localhost:3000/events/5
+Completed in 295ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:46:59) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 48ms (View: 20, DB: 2) | 200 OK [http://localhost/events/5]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:48:55) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"44", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"07", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"44", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+
+NameError (undefined local variable or method `email' for #<ExchangeService:0x2674f4c @errors=[], @appointment_id=nil>):
+  app/models/exchange_service.rb:137:in `create_calendar_item_xml'
+  app/models/exchange_service.rb:136:in `each'
+  app/models/exchange_service.rb:136:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:135:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:102:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:100:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:77:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:76:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:75:in `create_calendar_item_xml'
+  app/models/exchange_service.rb:19:in `create_event_in_ews'
+  app/controllers/events_controller.rb:57:in `create_ews_event'
+  app/controllers/events_controller.rb:16:in `create'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (90.3ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:49:33) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"44", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"07", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"44", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+Tue Mar 23 11:49:34 -0700 2010: Event:  -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zBQAA.
+  [4;35;1mEvent Create (0.6ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Test', 'UCSF', '2010-03-23 18:49:34', 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zBQAA', '2010-03-23 18:44:00', '2010-03-23 18:49:34', '2010-03-23 07:44:00', 'Testing stuff', 'tim@raddonline.com', '')[0m
+Redirected to http://localhost:3000/events/6
+Completed in 427ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:49:34) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 49ms (View: 21, DB: 2) | 200 OK [http://localhost/events/6]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:49:48) [GET]
+  [4;35;1mEvent Load (4.0ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 92ms (View: 68, DB: 4) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:49:52) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"6"}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 6) [0m
+Tue Mar 23 11:49:52 -0700 2010: Event: 6 - Deleted EWS event.
+  [4;35;1mEvent Destroy (1.7ms)[0m   [0mDELETE FROM "events" WHERE "id" = 6[0m
+Redirected to http://localhost:3000/events
+Completed in 260ms (DB: 3) | 302 Found [http://localhost/events/6]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:49:52) [GET]
+  [4;36;1mEvent Load (3.3ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 78ms (View: 56, DB: 3) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:50:03) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"5"}
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 5) [0m
+Tue Mar 23 11:50:03 -0700 2010: Event: 5 - EWS appointment could not be deleted. Status: Error. Response code: ErrorInvalidIdEmpty. Id must be non-empty.
+  [4;36;1mEvent Destroy (0.6ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 5[0m
+Redirected to http://localhost:3000/events
+Completed in 263ms (DB: 2) | 302 Found [http://localhost/events/5]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:50:03) [GET]
+  [4;35;1mEvent Load (3.2ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 66ms (View: 44, DB: 3) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:50:05) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"4"}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 4) [0m
+Tue Mar 23 11:50:05 -0700 2010: Event: 4 - EWS appointment could not be deleted. Status: Error. Response code: ErrorInvalidIdEmpty. Id must be non-empty.
+  [4;35;1mEvent Destroy (0.6ms)[0m   [0mDELETE FROM "events" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/events
+Completed in 267ms (DB: 2) | 302 Found [http://localhost/events/4]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:50:05) [GET]
+  [4;36;1mEvent Load (2.0ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 52ms (View: 31, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:50:07) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"3"}
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 3) [0m
+Tue Mar 23 11:50:07 -0700 2010: Event: 3 - EWS appointment could not be deleted. Status: Error. Response code: ErrorInvalidIdEmpty. Id must be non-empty.
+  [4;36;1mEvent Destroy (0.5ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/events
+Completed in 250ms (DB: 2) | 302 Found [http://localhost/events/3]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:50:07) [GET]
+  [4;35;1mEvent Load (0.6ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:50:13) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (69.2ms)
+Completed in 98ms (View: 73, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:51:26) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Special Event", "end_datetime(5i)"=>"50", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"18", "description"=>"Testing again", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"50", "attendee_addresses"=>"tim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>"Clifton.Li@ucsf.edu"}}
+Tue Mar 23 11:51:26 -0700 2010: Event:  -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zBwAA.
+  [4;36;1mEvent Create (0.7ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Special Event', 'UCSF', '2010-03-23 18:51:26', 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zBwAA', '2010-03-23 18:50:00', '2010-03-23 18:51:26', '2010-03-23 18:50:00', 'Testing again', 'tim@raddonline.com', 'Clifton.Li@ucsf.edu')[0m
+Redirected to http://localhost:3000/events/7
+Completed in 414ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:51:26) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mEvent Load (1.6ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 49ms (View: 21, DB: 2) | 200 OK [http://localhost/events/7]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:51:45) [GET]
+  [4;36;1mEvent Load (1.8ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 49ms (View: 29, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:51:47) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"7"}
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 7) [0m
+Tue Mar 23 11:51:48 -0700 2010: Event: 7 - Deleted EWS event.
+  [4;36;1mEvent Destroy (0.8ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/events
+Completed in 252ms (DB: 2) | 302 Found [http://localhost/events/7]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:51:48) [GET]
+  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-23 11:52:55) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (68.6ms)
+Completed in 97ms (View: 72, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-23 11:53:50) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Tim Test Event", "end_datetime(5i)"=>"52", "location"=>"RaddOnline", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"23", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"When you get this ignore it. I am testing a EWS feature for a blog post.", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"52", "attendee_addresses"=>"ellen@raddonline.com\r\ntammy@raddonline.com\r\ntim@raddonline.com", "end_datetime(3i)"=>"23", "target_mailbox"=>""}}
+Tue Mar 23 11:53:50 -0700 2010: Event:  -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zCQAA.
+  [4;36;1mEvent Create (0.7ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES('Tim Test Event', 'RaddOnline', '2010-03-23 18:53:50', 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zCQAA', '2010-03-23 18:52:00', '2010-03-23 18:53:50', '2010-03-23 08:52:00', 'When you get this ignore it. I am testing a EWS feature for a blog post.', 'ellen@raddonline.com
+tammy@raddonline.com
+tim@raddonline.com', '')[0m
+Redirected to http://localhost:3000/events/8
+Completed in 340ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-23 11:53:50) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 8) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 49ms (View: 21, DB: 2) | 200 OK [http://localhost/events/8]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:54:28) [GET]
+  [4;36;1mEvent Load (1.8ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 48ms (View: 29, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-23 11:54:31) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"8"}
+  [4;35;1mEvent Load (1.7ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 8) [0m
+Tue Mar 23 11:54:32 -0700 2010: Event: 8 - Deleted EWS event.
+  [4;36;1mEvent Destroy (0.8ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 8[0m
+Redirected to http://localhost:3000/events
+Completed in 263ms (DB: 2) | 302 Found [http://localhost/events/8]
+
+
+Processing EventsController#index (for ::1 at 2010-03-23 11:54:32) [GET]
+  [4;35;1mEvent Load (0.6ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]

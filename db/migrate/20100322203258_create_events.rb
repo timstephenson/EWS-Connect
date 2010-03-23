@@ -5,6 +5,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :description
       t.string :location
       t.string :ews_item_id
+      t.string :target_mailbox
+      t.text :attendee_addresses
       t.datetime :start_datetime
       t.datetime :end_datetime
       t.timestamps

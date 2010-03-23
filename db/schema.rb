@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(:version => 20100322203258) do
     t.string   "description"
     t.string   "location"
     t.string   "ews_item_id"
+    t.string   "target_mailbox"
+    t.text     "attendee_addresses"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.datetime "created_at"

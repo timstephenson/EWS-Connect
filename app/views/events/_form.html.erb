@@ -13,6 +13,14 @@
     <%= f.text_field :description %>
   </p>
   <p>
+    <%= f.label :target_mailbox %> (Email address or target calendar.)<br />
+    <%= f.text_field :target_mailbox %>
+  </p>
+  <p>
+    <%= f.label :attendee_addresses %> (Enter attendee email addresses separated with a return.)<br />
+    <%= f.text_area :attendee_addresses %>
+  </p>
+  <p>
     <%= f.label :start_datetime %><br />
     <%= f.datetime_select :start_datetime %>
   </p>

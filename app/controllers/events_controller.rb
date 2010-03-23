@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   
   def create_ews_event
     es = ExchangeService.new
-    if es.create_event_in_ews(@event)
+    if es.create_event_in_ews(@event, nil, @event.attendee_email_list)
       @event.ews_item_id = es.appointment_id
       logger.info("#{Time.now.to_s}: Event: #{@event.id} -  Created EWS event. EWS id: #{@event.ews_item_id}.")
     else

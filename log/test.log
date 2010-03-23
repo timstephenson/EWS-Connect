@@ -748,3 +748,125 @@ Mon Mar 22 17:43:43 -0700 2010: Event: 298486374 -  Created EWS event. EWS id: a
   [4;36;1mEvent Update (0.5ms)[0m   [0;1mUPDATE "events" SET "updated_at" = '2010-03-23 00:43:43', "ews_item_id" = 'appt-id' WHERE "id" = 298486374[0m
 Redirected to http://test.host/events/298486374
 Completed in 10ms (DB: 3) | 302 Found [http://test.host/events/298486374]
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 298486374) [0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 298486374) [0m
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.2ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1187371253) [0m
+  [4;36;1mEvent Load (1.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;36;1mEvent Load (1.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2053932785) [0m
+
+
+Processing EventsController#create (for 0.0.0.0 at 2010-03-23 11:35:14) [POST]
+Tue Mar 23 11:35:14 -0700 2010: Event:  -  Created EWS event. EWS id: appt-id.
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (80.5ms)
+Completed in 103ms (View: 87, DB: 2) | 200 OK [http://test.host/events]
+
+
+Processing EventsController#create (for 0.0.0.0 at 2010-03-23 11:35:14) [POST]
+Tue Mar 23 11:35:14 -0700 2010: Event:  -  Created EWS event. EWS id: appt-id.
+  [4;36;1mEvent Create (0.6ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description", "attendee_addresses", "target_mailbox") VALUES(NULL, NULL, '2010-03-23 18:35:14', 'appt-id', NULL, '2010-03-23 18:35:14', NULL, NULL, NULL, NULL)[0m
+Redirected to http://test.host/events/2053932786
+Completed in 6ms (DB: 1) | 302 Found [http://test.host/events]
+  [4;35;1mEvent Load (1.6ms)[0m   [0mSELECT * FROM "events" LIMIT 1[0m
+
+
+Processing EventsController#destroy (for 0.0.0.0 at 2010-03-23 11:35:14) [DELETE]
+  Parameters: {"id"=>#<Event id: 298486374, name: "Two Event", description: "This is two event", location: "Two Street", ews_item_id: nil, target_mailbox: nil, attendee_addresses: nil, start_datetime: "2010-03-22 13:32:58", end_datetime: "2010-03-22 13:32:58", created_at: "2010-03-23 18:35:14", updated_at: "2010-03-23 18:35:14">}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 298486374) [0m
+Tue Mar 23 11:35:14 -0700 2010: Event: 298486374 - Deleted EWS event.
+  [4;35;1mEvent Destroy (0.4ms)[0m   [0mDELETE FROM "events" WHERE "id" = 298486374[0m
+Redirected to http://test.host/events
+Completed in 5ms (DB: 4) | 302 Found [http://test.host/events/298486374]
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT "events".id FROM "events" WHERE ("events"."id" = 298486374) LIMIT 1[0m
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" LIMIT 1[0m
+
+
+Processing EventsController#edit (for 0.0.0.0 at 2010-03-23 11:35:14) [GET]
+  Parameters: {"id"=>#<Event id: 298486374, name: "Two Event", description: "This is two event", location: "Two Street", ews_item_id: nil, target_mailbox: nil, attendee_addresses: nil, start_datetime: "2010-03-22 13:32:58", end_datetime: "2010-03-22 13:32:58", created_at: "2010-03-23 18:35:14", updated_at: "2010-03-23 18:35:14">}
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 298486374) [0m
+Rendering template within layouts/application
+Rendering events/edit
+Rendered events/_form (57.7ms)
+Completed in 66ms (View: 62, DB: 3) | 200 OK [http://test.host/events/298486374/edit]
+
+
+Processing EventsController#index (for 0.0.0.0 at 2010-03-23 11:35:14) [GET]
+  [4;35;1mEvent Load (2.9ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 38ms (View: 33, DB: 3) | 200 OK [http://test.host/events]
+
+
+Processing EventsController#new (for 0.0.0.0 at 2010-03-23 11:35:14) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (119.2ms)
+Completed in 122ms (View: 122, DB: 0) | 200 OK [http://test.host/events/new]
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" LIMIT 1[0m
+
+
+Processing EventsController#show (for 0.0.0.0 at 2010-03-23 11:35:14) [GET]
+  Parameters: {"id"=>#<Event id: 298486374, name: "Two Event", description: "This is two event", location: "Two Street", ews_item_id: nil, target_mailbox: nil, attendee_addresses: nil, start_datetime: "2010-03-22 13:32:58", end_datetime: "2010-03-22 13:32:58", created_at: "2010-03-23 18:35:14", updated_at: "2010-03-23 18:35:14">}
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 298486374) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 15ms (View: 12, DB: 3) | 200 OK [http://test.host/events/298486374]
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" LIMIT 1[0m
+
+
+Processing EventsController#update (for 0.0.0.0 at 2010-03-23 11:35:14) [PUT]
+  Parameters: {"id"=>#<Event id: 298486374, name: "Two Event", description: "This is two event", location: "Two Street", ews_item_id: nil, target_mailbox: nil, attendee_addresses: nil, start_datetime: "2010-03-22 13:32:58", end_datetime: "2010-03-22 13:32:58", created_at: "2010-03-23 18:35:14", updated_at: "2010-03-23 18:35:14">}
+  [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 298486374) [0m
+Tue Mar 23 11:35:14 -0700 2010: Event: 298486374 - Deleted EWS event.
+Rendering template within layouts/application
+Rendering events/edit
+Rendered events/_form (56.7ms)
+Completed in 65ms (View: 60, DB: 3) | 200 OK [http://test.host/events/298486374]
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" LIMIT 1[0m
+
+
+Processing EventsController#update (for 0.0.0.0 at 2010-03-23 11:35:15) [PUT]
+  Parameters: {"id"=>#<Event id: 298486374, name: "Two Event", description: "This is two event", location: "Two Street", ews_item_id: nil, target_mailbox: nil, attendee_addresses: nil, start_datetime: "2010-03-22 13:32:58", end_datetime: "2010-03-22 13:32:58", created_at: "2010-03-23 18:35:14", updated_at: "2010-03-23 18:35:14">}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 298486374) [0m
+Tue Mar 23 11:35:15 -0700 2010: Event: 298486374 - Deleted EWS event.
+Tue Mar 23 11:35:15 -0700 2010: Event: 298486374 -  Created EWS event. EWS id: appt-id.
+  [4;36;1mEvent Update (0.5ms)[0m   [0;1mUPDATE "events" SET "updated_at" = '2010-03-23 18:35:15', "ews_item_id" = 'appt-id' WHERE "id" = 298486374[0m
+Redirected to http://test.host/events/298486374
+Completed in 10ms (DB: 3) | 302 Found [http://test.host/events/298486374]

@@ -6,15 +6,17 @@ class ExchangeService
     @appointment_id = nil
   end
   
-  # Takes an array of time slots. Calls the connect method with the formatted Soap document.
-  # Creates events in EWS for each time slot passed.
-  # If it succeeds, the @appointment_ids array will be populated with the EWS Item Id.
+  # Creates an event in EWS. If it succeeds, the @appointment_id will be populated with the EWS Item Id.
   # The EWS Item Id is the reference to the event in EWS so that it can be deleted.
   # If it returns false, check the errors array for messages.
-  def create_event_in_ews(event)
+  # Params:
+  # * event - Should have a name, location, description and start and end times.
+  # * target_mailbox - The email address for the calendar the event should go to. If nil, it will go on the calendar of the user the app logs in with.
+  # * attendees - An array of email addresses that will be added as attendees.
+  def create_event_in_ews(event, target_mailbox = nil, attendee_addresses = [])
     connection = ExchangeConnection.new(APP_CONFIG[:ews_user_name], APP_CONFIG[:ews_user_password], APP_CONFIG[:ews_endpoint])
     begin
-      response_doc = REXML::Document.new(connection.connect(create_calendar_item_xml(event)))
+      response_doc = REXML::Document.new(connection.connect(create_calendar_item_xml(event, target_mailbox, attendee_addresses)))
       status = REXML::XPath.first(response_doc, '//m:CreateItemResponseMessage').attribute('ResponseClass')
     rescue => e
       @errors << "Uh-oh, there was an XML exception: #{e}."
@@ -60,33 +62,38 @@ class ExchangeService
   
 private
   
-  # Takes a event and creates the XML to create a calendar item.
+  # Takes an event and creates the XML to create a calendar item.
   # Soap schema information can be found at:
   # http://msdn.microsoft.com/en-us/library/aa564690.aspx
-  def create_calendar_item_xml(event)
+  # Params:
+  # * event - Should have a name, location, description and start and end times.
+  # * target_mailbox - The email address for the calendar the event should go to. If nil, it will go on the calendar of the user the app logs in with.
+  # * attendees - An array of email addresses that will be added as attendees.
+  def create_calendar_item_xml(event, target_mailbox = nil, attendee_addresses = [])
     
     doc = REXML::Document.new
     doc.with_element('soap:Envelope', envelope_data) do |envelope|
       envelope.with_element('soap:Body') do |body|
-        body.with_element('CreateItem', create_item_data) do |create_item|
+        body.with_element('CreateItem', create_item_data(attendee_addresses.length > 0)) do |create_item|
                              
           create_item.with_element('SavedItemFolderId') do |saved_item_folder_id|
             # Will add the event to the calendar of the user that the app logs in as.
-            saved_item_folder_id.add_element('t:DistinguishedFolderId', {'Id' => "calendar"})
-            
-            # This adds an event to to the calendar specified by the mailbox.
-            # Schema info: http://msdn.microsoft.com/en-us/library/aa580808.aspx
-            # In order to succeed, the user who owns the target mail box must grant
-            # permission to the user that the app logs in as.
-            
-            # saved_item_folder_id.with_element('t:DistinguishedFolderId', xmlns_types.merge({'Id' => "calendar"})) do |distinguished_folder_id|
-            #   distinguished_folder_id.with_element("Mailbox") do |mailbox|
-            #     mailbox.with_element("EmailAddress") do |email|
-            #       email.add_text(event.assigned_user.email) unless event.assigned_user.blank?
-            #     end
-            #   end
-            # end # end distinguished folder id
-            
+            if target_mailbox.blank?
+              saved_item_folder_id.add_element('t:DistinguishedFolderId', {'Id' => "calendar"})
+            else
+              
+              # This adds an event to to the calendar specified by the mailbox.
+              # Schema info: http://msdn.microsoft.com/en-us/library/aa580808.aspx
+              # In order to succeed, the user who owns the target mail box must grant
+              # permission to the user that the app logs in as.
+              saved_item_folder_id.with_element('t:DistinguishedFolderId', xmlns_types.merge({'Id' => "calendar"})) do |distinguished_folder_id|
+                distinguished_folder_id.with_element("Mailbox") do |mailbox|
+                  mailbox.with_element("EmailAddress") do |email|
+                    email.add_text(target_mailbox)
+                  end
+                end
+              end # end distinguished folder id
+            end #if target_mailbox.blank?
           end
           
           # The items block in the XML
@@ -126,13 +133,15 @@ private
                 # If you have attendees, you would add them here.
                 # If the SendToNone option is seleceted, then it seems to ignore attendees anyway.
                 t_calendar_item.with_element("RequiredAttendees") do |attendees|
-                  attendees.with_element("Attendee") do |attendee|
-                    attendee.with_element("Mailbox") do |mailbox|
-                      mailbox.with_element("EmailAddress") do |email|
-                        email.add_text("any@emailaddress.com")
+                  attendee_addresses.each do |email_address|
+                    attendees.with_element("Attendee") do |attendee|
+                      attendee.with_element("Mailbox") do |mailbox|
+                        mailbox.with_element("EmailAddress") do |email|
+                          email.add_text(email_address)
+                        end
                       end
                     end
-                  end
+                  end # attendee_address.each
                 end # end of attendees
               end # end of calendar item
               
@@ -172,10 +181,11 @@ private
     return xmlns_soap.merge(xmlns_t)
   end
   
-  def create_item_data
+  def create_item_data(send_to_all)
     # If sending messages is not desired change value to: SendToNone, with invitation: SendToAllAndSaveCopy
     # http://msdn.microsoft.com/en-us/library/dd633661%28EXCHG.80%29.aspx
-    return xmlns_messages.merge(xmlns_t).merge({'SendMeetingInvitations' => "SendToAllAndSaveCopy"})
+    send_message_text = send_to_all ? "SendToAllAndSaveCopy" : "SendToNone"
+    return xmlns_messages.merge(xmlns_t).merge({'SendMeetingInvitations' => send_message_text})
   end
   
   def delete_item_data

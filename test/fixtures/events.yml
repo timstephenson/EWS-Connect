@@ -1,11 +1,20 @@
 one:
-  name: MyString
-  description: MyString
+  name: One Event
+  location: One Street
+  description: This is one event
   start_datetime: 2010-03-22 13:32:58
   end_datetime: 2010-03-22 13:32:58
 
 two:
-  name: MyString
-  description: MyString
+  name: Two Event
+  location: Two Street
+  description: This is two event
+  start_datetime: 2010-03-22 13:32:58
+  end_datetime: 2010-03-22 13:32:58
+  
+three:
+  name: 
+  location: 
+  description: This is one event
   start_datetime: 2010-03-22 13:32:58
   end_datetime: 2010-03-22 13:32:58

@@ -1,33 +1,17 @@
-  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mselect sqlite_version(*)[0m
-  [4;36;1mSQL (2.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateEvents (20100322203258)
-  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
-  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100322203258')[0m
-  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("events")[0m
 
 
-Processing ApplicationController#index (for ::1 at 2010-03-22 13:35:54) [GET]
+Processing EventsController#new (for ::1 at 2010-03-22 16:55:47) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (358.7ms)
+Completed in 419ms (View: 396, DB: 0) | 200 OK [http://localhost/events/new]
 
-ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+
+Processing EventsController#create (for ::1 at 2010-03-22 16:56:20) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"16", "name"=>"Testing 123", "end_datetime(5i)"=>"00", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Testing 123", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"00", "end_datetime(3i)"=>"22"}}
+
+NameError (uninitialized constant EventsController::ExchangeServer):
+  app/controllers/events_controller.rb:17:in `create'
   /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
   /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
   /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
@@ -39,241 +23,572 @@ ActionController::RoutingError (No route matches "/" with {:method=>:get}):
   /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
   /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
 
-Rendering rescues/layout (not_found)
+Rendered rescues/_trace (72.5ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
 
 
-Processing EventsController#index (for ::1 at 2010-03-22 13:36:56) [GET]
-  [4;36;1mEvent Load (0.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Processing EventsController#create (for ::1 at 2010-03-22 16:57:38) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"16", "name"=>"Testing 123", "end_datetime(5i)"=>"00", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Testing 123", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"00", "end_datetime(3i)"=>"22"}}
+  [4;36;1mEvent Create (0.6ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Testing 123', 'UCSF', '2010-03-22 23:57:38', NULL, '2010-03-22 16:00:00', '2010-03-22 23:57:38', '2010-03-22 10:00:00', 'Testing 123')[0m
+Redirected to http://localhost:3000/events/2
+Completed in 55ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 16:57:38) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 55ms (View: 29, DB: 1) | 200 OK [http://localhost/events/2]
+  [4;36;1mEvent Load (1.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 2) [0m
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:00:12) [GET]
+  [4;36;1mEvent Load (2.2ms)[0m   [0;1mSELECT * FROM "events" [0m
 Rendering template within layouts/application
 Rendering events/index
-Completed in 138ms (View: 120, DB: 1) | 200 OK [http://localhost/]
+Completed in 70ms (View: 50, DB: 2) | 200 OK [http://localhost/events]
 
 
-Processing EventsController#new (for ::1 at 2010-03-22 13:37:00) [GET]
+Processing EventsController#new (for ::1 at 2010-03-22 17:00:14) [GET]
 Rendering template within layouts/application
 Rendering events/new
-Rendered events/_form (480.6ms)
-Completed in 525ms (View: 503, DB: 0) | 200 OK [http://localhost/events/new]
+Rendered events/_form (142.6ms)
+Completed in 170ms (View: 146, DB: 0) | 200 OK [http://localhost/events/new]
 
 
-Processing EventsController#create (for ::1 at 2010-03-22 13:37:53) [POST]
-  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"20", "name"=>"Test", "end_datetime(5i)"=>"37", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"05", "description"=>"Fat event", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"37", "end_datetime(3i)"=>"22"}}
-  [4;35;1mEvent Create (0.6ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', NULL, '2010-03-22 20:37:53', '2010-03-22 20:37:00', '2010-03-22 20:37:53', '2010-03-22 05:37:00', 'Fat event')[0m
-Redirected to http://localhost:3000/events/1
-Completed in 38ms (DB: 1) | 302 Found [http://localhost/events]
+Processing EventsController#create (for ::1 at 2010-03-22 17:00:45) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"20", "name"=>"Testing 123", "end_datetime(5i)"=>"00", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Testing 456", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"00", "end_datetime(3i)"=>"22"}}
+  [4;35;1mEvent Create (0.6ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Testing 123', 'UCSF', '2010-03-23 00:00:45', NULL, '2010-03-22 20:00:00', '2010-03-23 00:00:45', '2010-03-22 10:00:00', 'Testing 456')[0m
+Redirected to http://localhost:3000/events/3
+Completed in 57ms (DB: 1) | 302 Found [http://localhost/events]
 
 
-Processing EventsController#show (for ::1 at 2010-03-22 13:37:53) [GET]
-  Parameters: {"id"=>"1"}
-  [4;36;1mEvent Load (1.2ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+Processing EventsController#show (for ::1 at 2010-03-22 17:00:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 3) [0m
 Rendering template within layouts/application
 Rendering events/show
-Completed in 57ms (View: 31, DB: 1) | 200 OK [http://localhost/events/1]
+Completed in 45ms (View: 20, DB: 1) | 200 OK [http://localhost/events/3]
 
 
-Processing EventsController#index (for ::1 at 2010-03-22 13:37:58) [GET]
-  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" [0m
+Processing EventsController#index (for ::1 at 2010-03-22 17:05:25) [GET]
+  [4;35;1mEvent Load (2.8ms)[0m   [0mSELECT * FROM "events" [0m
 Rendering template within layouts/application
 Rendering events/index
-Completed in 44ms (View: 26, DB: 1) | 200 OK [http://localhost/events]
+Completed in 73ms (View: 52, DB: 3) | 200 OK [http://localhost/events]
 
 
-Processing EventsController#edit (for ::1 at 2010-03-22 13:38:46) [GET]
-  Parameters: {"id"=>"1"}
-  [4;36;1mEvent Load (1.2ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-Rendering template within layouts/application
-Rendering events/edit
-Rendered events/_form (68.6ms)
-Completed in 115ms (View: 90, DB: 1) | 200 OK [http://localhost/events/1/edit]
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:05:28) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"3"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 3) [0m
+  [4;35;1mEvent Destroy (0.5ms)[0m   [0mDELETE FROM "events" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/events
+Completed in 31ms (DB: 2) | 302 Found [http://localhost/events/3]
 
 
-Processing EventsController#update (for ::1 at 2010-03-22 13:38:51) [PUT]
-  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"1", "event"=>{"end_datetime(4i)"=>"20", "name"=>"Test", "end_datetime(5i)"=>"37", "location"=>"Home", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"05", "description"=>"Fat event", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"37", "end_datetime(3i)"=>"22"}}
-  [4;35;1mEvent Load (1.2ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-WARNING: Can't mass-assign these protected attributes: location
-Redirected to http://localhost:3000/events/1
-Completed in 36ms (DB: 1) | 302 Found [http://localhost/events/1]
-
-
-Processing EventsController#show (for ::1 at 2010-03-22 13:38:51) [GET]
-  Parameters: {"id"=>"1"}
-  [4;36;1mEvent Load (1.2ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-Rendering template within layouts/application
-Rendering events/show
-Completed in 45ms (View: 19, DB: 1) | 200 OK [http://localhost/events/1]
-
-
-Processing EventsController#show (for ::1 at 2010-03-22 13:39:13) [GET]
-  Parameters: {"id"=>"1"}
-  [4;35;1mEvent Load (1.2ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-Rendering template within layouts/application
-Rendering events/show
-Completed in 55ms (View: 29, DB: 1) | 200 OK [http://localhost/events/1]
-
-
-Processing EventsController#edit (for ::1 at 2010-03-22 13:39:31) [GET]
-  Parameters: {"id"=>"1"}
-  [4;36;1mEvent Load (1.2ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-Rendering template within layouts/application
-Rendering events/edit
-Rendered events/_form (63.5ms)
-Completed in 93ms (View: 68, DB: 1) | 200 OK [http://localhost/events/1/edit]
-
-
-Processing EventsController#update (for ::1 at 2010-03-22 13:39:34) [PUT]
-  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"1", "event"=>{"end_datetime(4i)"=>"20", "name"=>"Test", "end_datetime(5i)"=>"37", "location"=>"Home", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"05", "description"=>"Fat event", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"37", "end_datetime(3i)"=>"22"}}
-  [4;35;1mEvent Load (1.2ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-  [4;36;1mEvent Update (0.5ms)[0m   [0;1mUPDATE "events" SET "updated_at" = '2010-03-22 20:39:34', "location" = 'Home' WHERE "id" = 1[0m
-Redirected to http://localhost:3000/events/1
-Completed in 39ms (DB: 2) | 302 Found [http://localhost/events/1]
-
-
-Processing EventsController#show (for ::1 at 2010-03-22 13:39:34) [GET]
-  Parameters: {"id"=>"1"}
-  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-Rendering template within layouts/application
-Rendering events/show
-Completed in 44ms (View: 19, DB: 1) | 200 OK [http://localhost/events/1]
-
-
-Processing EventsController#index (for ::1 at 2010-03-22 13:39:49) [GET]
-  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" [0m
+Processing EventsController#index (for ::1 at 2010-03-22 17:05:28) [GET]
+  [4;36;1mEvent Load (2.1ms)[0m   [0;1mSELECT * FROM "events" [0m
 Rendering template within layouts/application
 Rendering events/index
-Completed in 44ms (View: 25, DB: 1) | 200 OK [http://localhost/events]
+Completed in 58ms (View: 39, DB: 2) | 200 OK [http://localhost/events]
 
 
-Processing EventsController#index (for ::1 at 2010-03-22 13:40:11) [GET]
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:05:30) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"2"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 2) [0m
+  [4;36;1mEvent Destroy (0.4ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/events
+Completed in 31ms (DB: 2) | 302 Found [http://localhost/events/2]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:05:30) [GET]
   [4;35;1mEvent Load (1.5ms)[0m   [0mSELECT * FROM "events" [0m
 Rendering template within layouts/application
 Rendering events/index
-Completed in 54ms (View: 35, DB: 1) | 200 OK [http://localhost/events]
-  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
-  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;36;1mSQL (2.8ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
-  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [4;35;1mSQL (2.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
-  [4;36;1mSQL (1.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100322203258')[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mselect sqlite_version(*)[0m
-  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [4;35;1mSQL (2.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateEvents (20100322203258)
-  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "ews_item_id" varchar(255), "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
-  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100322203258')[0m
-  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("events")[0m
-  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
-  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;36;1mSQL (3.4ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "location" varchar(255), "ews_item_id" varchar(255), "start_datetime" datetime, "end_datetime" datetime, "created_at" datetime, "updated_at" datetime) [0m
-  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [4;35;1mSQL (2.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
-  [4;36;1mSQL (1.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100322203258')[0m
+Completed in 46ms (View: 27, DB: 2) | 200 OK [http://localhost/events]
 
 
-Processing EventsController#show (for ::1 at 2010-03-22 13:51:34) [GET]
-  Parameters: {"id"=>"1"}
-  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
-
-ActiveRecord::RecordNotFound (Couldn't find Event with ID=1):
-  app/controllers/events_controller.rb:7:in `show'
-  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (161.6ms)
-Rendered rescues/_request_and_response (2.7ms)
-Rendering rescues/layout (not_found)
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:05:32) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"1"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mEvent Destroy (0.5ms)[0m   [0mDELETE FROM "events" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/events
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/events/1]
 
 
-Processing EventsController#index (for ::1 at 2010-03-22 13:51:41) [GET]
-  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" [0m
+Processing EventsController#index (for ::1 at 2010-03-22 17:05:32) [GET]
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" [0m
 Rendering template within layouts/application
 Rendering events/index
-Completed in 21ms (View: 3, DB: 0) | 200 OK [http://localhost/events]
+Completed in 106ms (View: 88, DB: 1) | 200 OK [http://localhost/events]
 
 
-Processing EventsController#new (for ::1 at 2010-03-22 13:51:42) [GET]
+Processing EventsController#new (for ::1 at 2010-03-22 17:05:33) [GET]
 Rendering template within layouts/application
 Rendering events/new
 Rendered events/_form (62.1ms)
 Completed in 89ms (View: 65, DB: 0) | 200 OK [http://localhost/events/new]
 
 
-Processing EventsController#create (for ::1 at 2010-03-22 13:52:03) [POST]
-  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"20", "name"=>"Test", "end_datetime(5i)"=>"30", "location"=>"Home", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"12", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"00", "end_datetime(3i)"=>"22"}}
-  [4;36;1mEvent Create (0.6ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'Home', '2010-03-22 20:52:03', NULL, '2010-03-22 20:30:00', '2010-03-22 20:52:03', '2010-03-22 12:00:00', 'Testing stuff')[0m
-Redirected to http://localhost:3000/events/1
-Completed in 38ms (DB: 1) | 302 Found [http://localhost/events]
+Processing EventsController#create (for ::1 at 2010-03-22 17:06:06) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"05", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"05", "end_datetime(3i)"=>"22"}}
+  [4;35;1mEvent Create (0.6ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'UCSF', '2010-03-23 00:06:07', NULL, '2010-03-22 18:05:00', '2010-03-23 00:06:07', '2010-03-22 10:05:00', 'Test')[0m
+
+NameError (undefined local variable or method `es' for #<EventsController:0x24f92bc>):
+  app/controllers/events_controller.rb:17:in `create'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (68.4ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
 
 
-Processing EventsController#show (for ::1 at 2010-03-22 13:52:03) [GET]
-  Parameters: {"id"=>"1"}
-  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+Processing EventsController#create (for ::1 at 2010-03-22 17:06:58) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"05", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"05", "end_datetime(3i)"=>"22"}}
+  [4;36;1mEvent Create (0.6ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'UCSF', '2010-03-23 00:06:58', NULL, '2010-03-22 18:05:00', '2010-03-23 00:06:58', '2010-03-22 10:05:00', 'Test')[0m
+Mon Mar 22 17:06:58 -0700 2010: Event: 5 - Uh-oh, there was an XML exception: undefined method `with_element' for <UNDEFINED/>:REXML::Document.
+Redirected to http://localhost:3000/events/5
+Completed in 55ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:06:58) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 5) [0m
 Rendering template within layouts/application
 Rendering events/show
-Completed in 48ms (View: 20, DB: 1) | 200 OK [http://localhost/events/1]
+Completed in 45ms (View: 20, DB: 1) | 200 OK [http://localhost/events/5]
 
 
-Processing EventsController#index (for ::1 at 2010-03-22 13:52:07) [GET]
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:08:43) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"5"}
+  [4;36;1mEvent Load (1.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 5) [0m
+  [4;35;1mEvent Destroy (0.6ms)[0m   [0mDELETE FROM "events" WHERE "id" = 5[0m
+Redirected to http://localhost:3000/events
+Completed in 64ms (DB: 2) | 302 Found [http://localhost/events/5]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:08:44) [GET]
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 353ms (View: 334, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:08:47) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"4"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 4) [0m
+  [4;36;1mEvent Destroy (0.5ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/events
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/events/4]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:08:47) [GET]
+  [4;35;1mEvent Load (0.6ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-22 17:08:49) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (64.4ms)
+Completed in 108ms (View: 85, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 17:09:19) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Working Late", "end_datetime(5i)"=>"08", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"Testing stuff", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"08", "end_datetime(3i)"=>"22"}}
+  [4;36;1mEvent Create (0.6ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Working Late', 'UCSF', '2010-03-23 00:09:19', NULL, '2010-03-22 18:08:00', '2010-03-23 00:09:19', '2010-03-22 08:08:00', 'Testing stuff')[0m
+Mon Mar 22 17:09:19 -0700 2010: Event: 6 - Uh-oh, there was an XML exception: You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name.
+Redirected to http://localhost:3000/events/6
+Completed in 58ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:09:19) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 55ms (View: 30, DB: 1) | 200 OK [http://localhost/events/6]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:11:37) [GET]
   [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" [0m
 Rendering template within layouts/application
 Rendering events/index
-Completed in 44ms (View: 26, DB: 2) | 200 OK [http://localhost/events]
+Completed in 46ms (View: 27, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-22 17:11:38) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (144.4ms)
+Completed in 171ms (View: 148, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 17:11:53) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"11", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"11", "end_datetime(3i)"=>"22"}}
+  [4;35;1mEvent Create (0.6ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'UCSF', '2010-03-23 00:11:53', NULL, '2010-03-22 18:11:00', '2010-03-23 00:11:53', '2010-03-22 10:11:00', 'Test')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name):
+  app/models/exchange_service.rb:97:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:95:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:93:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:71:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:70:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:69:in `create_calendar_item_xml'
+  app/models/exchange_service.rb:17:in `create_event_in_ews'
+  app/controllers/events_controller.rb:18:in `create'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.6ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 17:14:21) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"11", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"11", "end_datetime(3i)"=>"22"}}
+  [4;36;1mEvent Create (0.6ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'UCSF', '2010-03-23 00:14:21', NULL, '2010-03-22 18:11:00', '2010-03-23 00:14:21', '2010-03-22 10:11:00', 'Test')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name):
+  app/models/exchange_service.rb:97:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:95:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:93:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:71:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:70:in `create_calendar_item_xml'
+  config/initializers/rexml_element_extras.rb:5:in `with_element'
+  app/models/exchange_service.rb:69:in `create_calendar_item_xml'
+  app/models/exchange_service.rb:17:in `create_event_in_ews'
+  app/controllers/events_controller.rb:18:in `create'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.5ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 17:15:36) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"11", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"10", "description"=>"Test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"11", "end_datetime(3i)"=>"22"}}
+  [4;35;1mEvent Create (0.6ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'UCSF', '2010-03-23 00:15:36', NULL, '2010-03-22 18:11:00', '2010-03-23 00:15:36', '2010-03-22 10:11:00', 'Test')[0m
+  [4;36;1mEvent Update (0.6ms)[0m   [0;1mUPDATE "events" SET "updated_at" = '2010-03-23 00:15:37', "ews_item_id" = 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y+QAA' WHERE "id" = 9[0m
+Mon Mar 22 17:15:37 -0700 2010: Event: 9 -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y+QAA.
+Redirected to http://localhost:3000/events/9
+Completed in 542ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:15:37) [GET]
+  Parameters: {"id"=>"9"}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 9) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 46ms (View: 20, DB: 1) | 200 OK [http://localhost/events/9]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:16:28) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"9"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 9) [0m
+  [4;35;1mEvent Destroy (0.5ms)[0m   [0mDELETE FROM "events" WHERE "id" = 9[0m
+Redirected to http://localhost:3000/events
+Completed in 30ms (DB: 2) | 302 Found [http://localhost/events/9]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:16:28) [GET]
+  [4;36;1mEvent Load (3.0ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 75ms (View: 54, DB: 3) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:16:31) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"8"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 8) [0m
+  [4;36;1mEvent Destroy (0.5ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 8[0m
+Redirected to http://localhost:3000/events
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/events/8]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:16:31) [GET]
+  [4;35;1mEvent Load (2.3ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 63ms (View: 42, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:16:33) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"7"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 7) [0m
+  [4;35;1mEvent Destroy (0.5ms)[0m   [0mDELETE FROM "events" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/events
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/events/7]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:16:33) [GET]
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 50ms (View: 28, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:16:35) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"6"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 6) [0m
+  [4;36;1mEvent Destroy (0.5ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 6[0m
+Redirected to http://localhost:3000/events
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/events/6]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:16:35) [GET]
+  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-22 17:17:49) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (65.5ms)
+Completed in 93ms (View: 69, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 17:18:11) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Testing", "end_datetime(5i)"=>"17", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"05", "description"=>"This is a test", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"17", "end_datetime(3i)"=>"22"}}
+Mon Mar 22 17:18:11 -0700 2010: Event:  -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y+wAA.
+  [4;36;1mEvent Create (0.7ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Testing', 'UCSF', '2010-03-23 00:18:11', 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y+wAA', '2010-03-22 18:17:00', '2010-03-23 00:18:11', '2010-03-22 05:17:00', 'This is a test')[0m
+Redirected to http://localhost:3000/events/10
+Completed in 336ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:18:11) [GET]
+  Parameters: {"id"=>"10"}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 46ms (View: 20, DB: 1) | 200 OK [http://localhost/events/10]
+  [4;35;1mEvent Load (1.6ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 10) [0m
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:21:55) [GET]
+  [4;36;1mEvent Load (1.5ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 47ms (View: 27, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:21:59) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"10"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 10) [0m
+
+NameError (undefined local variable or method `es' for #<EventsController:0x23567fc>):
+  app/controllers/events_controller.rb:47:in `destroy'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (72.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:22:23) [GET]
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 46ms (View: 27, DB: 2) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:22:28) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"10"}
+  [4;35;1mEvent Load (1.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 10) [0m
+Mon Mar 22 17:22:28 -0700 2010: Event: 10 - Deleted EWS event.
+  [4;36;1mEvent Destroy (0.6ms)[0m   [0;1mDELETE FROM "events" WHERE "id" = 10[0m
+Redirected to http://localhost:3000/events
+Completed in 265ms (DB: 2) | 302 Found [http://localhost/events/10]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:22:28) [GET]
+  [4;35;1mEvent Load (0.6ms)[0m   [0mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-22 17:24:53) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (64.0ms)
+Completed in 92ms (View: 68, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 17:25:21) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"My Test Event", "end_datetime(5i)"=>"24", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"This is a test event. Please ignore it.", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"24", "end_datetime(3i)"=>"22"}}
+Mon Mar 22 17:25:22 -0700 2010: Event:  -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y/QAA.
+  [4;36;1mEvent Create (1.1ms)[0m   [0;1mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('My Test Event', 'UCSF', '2010-03-23 00:25:22', 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y/QAA', '2010-03-22 18:24:00', '2010-03-23 00:25:22', '2010-03-22 08:24:00', 'This is a test event. Please ignore it.')[0m
+Redirected to http://localhost:3000/events/11
+Completed in 366ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:25:22) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 46ms (View: 20, DB: 1) | 200 OK [http://localhost/events/11]
+
+
+Processing EventsController#edit (for ::1 at 2010-03-22 17:25:44) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering events/edit
+Rendered events/_form (67.9ms)
+Completed in 109ms (View: 83, DB: 1) | 200 OK [http://localhost/events/11/edit]
+
+
+Processing EventsController#update (for ::1 at 2010-03-22 17:26:02) [PUT]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"11", "event"=>{"end_datetime(4i)"=>"13", "name"=>"My Test Event", "end_datetime(5i)"=>"24", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"This is a test event. Please ignore it. After editing.", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"24", "end_datetime(3i)"=>"22"}}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 11) [0m
+Mon Mar 22 17:26:02 -0700 2010: Event: 11 - Deleted EWS event.
+Mon Mar 22 17:26:02 -0700 2010: Event: 11 -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y/wAA.
+  [4;36;1mEvent Update (0.7ms)[0m   [0;1mUPDATE "events" SET "updated_at" = '2010-03-23 00:26:02', "end_datetime" = '2010-03-22 13:24:00', "ews_item_id" = 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00y/wAA', "description" = 'This is a test event. Please ignore it. After editing.' WHERE "id" = 11[0m
+Redirected to http://localhost:3000/events/11
+Completed in 557ms (DB: 2) | 302 Found [http://localhost/events/11]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:26:03) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 45ms (View: 19, DB: 1) | 200 OK [http://localhost/events/11]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:27:35) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"11"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 11) [0m
+Mon Mar 22 17:27:35 -0700 2010: Event: 11 - Deleted EWS event.
+  [4;35;1mEvent Destroy (0.6ms)[0m   [0mDELETE FROM "events" WHERE "id" = 11[0m
+Redirected to http://localhost:3000/events
+Completed in 269ms (DB: 2) | 302 Found [http://localhost/events/11]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:27:35) [GET]
+  [4;36;1mEvent Load (0.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
+
+
+Processing EventsController#new (for ::1 at 2010-03-22 17:27:36) [GET]
+Rendering template within layouts/application
+Rendering events/new
+Rendered events/_form (63.6ms)
+Completed in 91ms (View: 67, DB: 0) | 200 OK [http://localhost/events/new]
+
+
+Processing EventsController#create (for ::1 at 2010-03-22 17:28:02) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "event"=>{"end_datetime(4i)"=>"18", "name"=>"Test", "end_datetime(5i)"=>"27", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"Adding a new event...", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"27", "end_datetime(3i)"=>"22"}}
+Mon Mar 22 17:28:02 -0700 2010: Event:  -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zAQAA.
+  [4;35;1mEvent Create (0.7ms)[0m   [0mINSERT INTO "events" ("name", "location", "created_at", "ews_item_id", "end_datetime", "updated_at", "start_datetime", "description") VALUES('Test', 'UCSF', '2010-03-23 00:28:02', 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zAQAA', '2010-03-22 18:27:00', '2010-03-23 00:28:02', '2010-03-22 08:27:00', 'Adding a new event...')[0m
+Redirected to http://localhost:3000/events/12
+Completed in 327ms (DB: 1) | 302 Found [http://localhost/events]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:28:02) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 46ms (View: 20, DB: 1) | 200 OK [http://localhost/events/12]
+
+
+Processing EventsController#edit (for ::1 at 2010-03-22 17:28:19) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering events/edit
+Rendered events/_form (67.5ms)
+Completed in 98ms (View: 72, DB: 1) | 200 OK [http://localhost/events/12/edit]
+
+
+Processing EventsController#update (for ::1 at 2010-03-22 17:28:28) [PUT]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"12", "event"=>{"end_datetime(4i)"=>"15", "name"=>"Test", "end_datetime(5i)"=>"27", "location"=>"UCSF", "start_datetime(1i)"=>"2010", "start_datetime(2i)"=>"3", "start_datetime(3i)"=>"22", "end_datetime(1i)"=>"2010", "start_datetime(4i)"=>"08", "description"=>"Adding a new event... and editing it.", "end_datetime(2i)"=>"3", "start_datetime(5i)"=>"27", "end_datetime(3i)"=>"22"}}
+  [4;36;1mEvent Load (1.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 12) [0m
+Mon Mar 22 17:28:28 -0700 2010: Event: 12 - Deleted EWS event.
+  [4;35;1mEvent Update (0.7ms)[0m   [0mUPDATE "events" SET "updated_at" = '2010-03-23 00:28:28', "end_datetime" = '2010-03-22 15:27:00', "description" = 'Adding a new event... and editing it.' WHERE "id" = 12[0m
+Mon Mar 22 17:28:28 -0700 2010: Event: 12 -  Created EWS event. EWS id: AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zAwAA.
+  [4;36;1mEvent Update (0.7ms)[0m   [0;1mUPDATE "events" SET "updated_at" = '2010-03-23 00:28:28', "ews_item_id" = 'AAATAENsaWZ0b24uTGlAdWNzZi5lZHUARgAAAAAARULCRTXoTk+ZnH79+Ph7RAcAouvHxMlL/kyjU285Voej+wAO1/dQ7QAAouvHxMlL/kyjU285Voej+wAYC00zAwAA' WHERE "id" = 12[0m
+Redirected to http://localhost:3000/events/12
+Completed in 596ms (DB: 3) | 302 Found [http://localhost/events/12]
+
+
+Processing EventsController#show (for ::1 at 2010-03-22 17:28:28) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mEvent Load (1.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering events/show
+Completed in 48ms (View: 20, DB: 1) | 200 OK [http://localhost/events/12]
+
+
+Processing EventsController#destroy (for ::1 at 2010-03-22 17:28:41) [DELETE]
+  Parameters: {"authenticity_token"=>"fVy9tzIxFfI1KpHalBgXMOvUWAP3RXrOxG9lDSe98d8=", "id"=>"12"}
+  [4;36;1mEvent Load (1.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 12) [0m
+Mon Mar 22 17:28:41 -0700 2010: Event: 12 - Deleted EWS event.
+  [4;35;1mEvent Destroy (0.5ms)[0m   [0mDELETE FROM "events" WHERE "id" = 12[0m
+Redirected to http://localhost:3000/events
+Completed in 247ms (DB: 2) | 302 Found [http://localhost/events/12]
+
+
+Processing EventsController#index (for ::1 at 2010-03-22 17:28:41) [GET]
+  [4;36;1mEvent Load (0.6ms)[0m   [0;1mSELECT * FROM "events" [0m
+Rendering template within layouts/application
+Rendering events/index
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/events]
